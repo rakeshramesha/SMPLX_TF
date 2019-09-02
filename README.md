@@ -16,6 +16,6 @@ Trimesh
 Pyrender
 
 
-**Download SMPL, SMPLH and  SMPLX model files as per instructions in ** 
+Download SMPL, SMPLH and  SMPLX model files as per instructions in
 [SMPLX-project page](https://smpl-x.is.tue.mpg.de/)
 
