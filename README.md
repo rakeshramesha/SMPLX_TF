@@ -6,13 +6,13 @@ SMPLX  Tensorflow module
 #### **Requirements:**
 
 **Needed:**
-Python3
-Pickle
-Numpy
+Python3,
+Pickle,
+Numpy,
 Tensorflow
 
 **Optional:**
-Trimesh
+Trimesh,
 Pyrender
 
 
