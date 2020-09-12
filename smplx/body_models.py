@@ -15,16 +15,11 @@ import tensorflow as tf
 import numpy as np
 
 from collections import namedtuple
-
-#import torch
-#import torch.nn as nn
-
 from .lbs import (lbs, vertices2landmarks, find_dynamic_lmk_idx_and_bcoords)
 
 from .vertex_ids import vertex_ids as VERTEX_IDS
 from .utils import Struct, to_np, to_tensor
 from .vertex_joint_selector import VertexJointSelector
-
 
 ModelOutput = namedtuple('ModelOutput',
                          ['vertices', 'joints', 'full_pose', 'betas',
@@ -75,7 +70,6 @@ class SMPL(object):
                  vertex_ids=None,
                  **kwargs):
       
-
         self.gender = gender
 
         if data_struct is None:
@@ -625,9 +619,7 @@ class SMPLH(SMPL):
 
         return output
 
-
-class SMPLX(SMPLH):
-    
+class SMPLX(SMPLH):   
 
     NUM_BODY_JOINTS = SMPLH.NUM_BODY_JOINTS
     NUM_HAND_JOINTS = 15
@@ -647,7 +639,6 @@ class SMPLX(SMPLH):
                  ext='npz',
                  **kwargs):
        
-
         # Load the model
         if osp.isdir(model_path):
             model_fn = 'SMPLX_{}.{ext}'.format(gender.upper(), ext=ext)

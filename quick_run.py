@@ -21,25 +21,25 @@ def main(model_folder, model_type='smplx', ext='npz',
                          ext=ext)
     print(model)
 
-    betas = tf.convert_to_tensor( np.random.standard_normal([1,10]).astype(np.float32))                 #[[-1.3573,  0.9423,  0.6675,  0.6804, -1.0229, -1.2455, -0.1667,  0.7943, 0.9591, 0.7925]]) 
-    expression = tf.convert_to_tensor( np.random.standard_normal([1,10]).astype(np.float32))            #[[ 0.3169, -0.4887, -0.0194, -0.6570, -0.9348,  0.3143,  0.9349, -0.0479, 0.4494, -2.1038]]) 
+    betas = tf.convert_to_tensor( np.random.standard_normal([1,10]).astype(np.float32))                
+    expression = tf.convert_to_tensor( np.random.standard_normal([1,10]).astype(np.float32))            
 
     if (model_type.lower() == 'smpl'):
         ### 23 body pose joints in smpl while rest have 21 body pose joints
-        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,23*3]).astype(np.float32)*0.1)     #tf.random_normal([1,23*3], dtype=tf.float32)*0.1
+        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,23*3]).astype(np.float32)*0.1)     
         output = model(betas=betas ,body_pose=bo_pose, return_verts=True)
 
     elif (model_type.lower() == 'smplh'):
-        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,21*3]).astype(np.float32)*0.1)     #tf.random_normal([1,21*3], dtype=tf.float32)*0.1
-        l_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        #[[-0.0869,  0.4552,  0.3587, -1.7560, -0.7198, -0.5980]]) #tf.random_normal([1, 6], dtype=tf.float32)
-        r_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        #[[-0.0869,  0.4552,  0.3587, -1.7560, -0.7198, -0.5980]]) #tf.random_normal([1, 6], dtype=tf.float32)
+        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,21*3]).astype(np.float32)*0.1)    
+        l_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        
+        r_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))       
         
         output = model(betas=betas, body_pose=bo_pose, left_hand_pose=l_hand_pose, right_hand_pose=r_hand_pose, return_verts=True)
 
     elif (model_type.lower() == 'smplx'):
-        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,21*3]).astype(np.float32)*0.1)     #tf.random_normal([1,21*3], dtype=tf.float32)*0.1
-        l_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        #[[-0.0869,  0.4552,  0.3587, -1.7560, -0.7198, -0.5980]]) #tf.random_normal([1, 6], dtype=tf.float32)
-        r_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        #[[-0.0869,  0.4552,  0.3587, -1.7560, -0.7198, -0.59
+        bo_pose = tf.convert_to_tensor( np.random.standard_normal([1,21*3]).astype(np.float32)*0.1)     
+        l_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))       
+        r_hand_pose = tf.convert_to_tensor( np.random.standard_normal([1,6]).astype(np.float32))        
 
         output = model(betas=betas, expression=expression, body_pose=bo_pose, left_hand_pose=l_hand_pose, right_hand_pose=r_hand_pose, return_verts=True)
 

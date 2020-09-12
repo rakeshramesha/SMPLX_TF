@@ -4,6 +4,8 @@ SMPL-X Tensorflow module
 
 SMPL-X for tensorflow pipelines. This is a tensorflow port of the [original SMPL-X](https://github.com/vchoutas/smplx) expressive human parametric model. 
 
+![teaser](teaser_fig.png)
+
 #### **Requirements:**
 
 **Needed:**
@@ -24,4 +26,6 @@ For merging SMPL+H with [MANO](https://mano.is.tue.mpg.de/) or to remove chumpy 
 
 For downloading SMPL gender based models (i.e male, female) follow [this](https://smpl.is.tue.mpg.de/), for gender neutral model follow [this](http://smplify.is.tue.mpg.de/).
 
-Do consider clicking the star button for the project if this repo was useful in your work.
+**Do consider clicking the star button for the project if this repository was useful in your work.**
+
+For License please check original SMPL-X repository [here](https://github.com/vchoutas/smplx).
